@@ -10,7 +10,7 @@ module.exports = (React, ReactNative, { model, styles }) => {
     TouchableWithoutFeedback,
     ScrollView,
     View,
-    BackHandler
+    BackAndroid
   } = ReactNative;
   const AnimatedOptionsContainer = require('./makeAnimatedOptionsContainer')(React, ReactNative);
 
@@ -53,11 +53,11 @@ module.exports = (React, ReactNative, { model, styles }) => {
   return createClass({
     displayName: 'MenuContext',
     propTypes: {
-      detectBackHandler: PropTypes.bool,
+      detectBackAndroid: PropTypes.bool,
     },
     getDefaultProps() {
       return {
-        detectBackHandler: true,
+        detectBackAndroid: true,
       };
     },
     mixins: [TimerMixin],
@@ -132,7 +132,7 @@ module.exports = (React, ReactNative, { model, styles }) => {
       // Only do this once on initial layout.
       this.onLayout = once(this.onLayout);
     },
-    handleBackHandler() {
+    handleBackAndroid() {
       if (this.isMenuOpen()){
         this.closeMenu();
         return true;
@@ -150,9 +150,9 @@ module.exports = (React, ReactNative, { model, styles }) => {
         console.warn(`Menu ${name} has already been registered in this context. Please provide a different name.`);
       }
 
-      if (this.props.detectBackHandler){
-        BackHandler.removeEventListener('hardwareBackPress', this.handleBackHandler);  //Override previous listener
-        BackHandler.addEventListener('hardwareBackPress', this.handleBackHandler);
+      if (this.props.detectBackAndroid){
+        BackAndroid.removeEventListener('hardwareBackPress', this.handleBackAndroid);  //Override previous listener
+        BackAndroid.addEventListener('hardwareBackPress', this.handleBackAndroid);
       }
       this._menus[name] = hooks;
     },
