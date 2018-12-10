@@ -50,7 +50,7 @@
     "mocha": "^2.3.4",
     "react": "16.0.0-alpha.13",
     "react-dom": "16.0.0-alpha.13",
-    "react-native": "^0.47.2",
+    "react-native": "0.42.3",
     "react-test-renderer": "16.0.0-alpha.13",
     "sinon": "^1.17.2",
     "wd": "^0.4.0"
