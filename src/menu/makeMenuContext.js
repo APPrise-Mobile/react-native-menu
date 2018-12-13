@@ -187,7 +187,7 @@ module.exports = (React, ReactNative, { model, styles }) => {
 
     render() {
       return (
-        <View ref="Container" onLayout={this.onLayout} style={{ flex: 1, height: this.state.openedMenu ? 900 : 35 }}>
+        <View ref="Container" onLayout={this.onLayout} style={{ flex: 1, height: this.state.openedMenu ? this.state.menuOptions.props.children.props.children.props.children.length * 50 : 35 }}>
           <View style={this.props.style}>
             { this.props.children }
           </View>
